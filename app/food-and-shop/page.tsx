@@ -39,6 +39,9 @@ export default function FoodPage() {
           </section>
         ))}
       </div>
+      <p className="mt-3 text-sm text-mute">
+        Photographs are stock images under the Unsplash License, not Engen sites.
+      </p>
     </main>
   );
 }
