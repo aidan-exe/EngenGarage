@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { StationMap } from "@/components/StationMap";
 import { haversineKm } from "@/lib/geo";
+import { GOOGLE_MAPS_API_KEY } from "@/lib/maps";
 import {
   amenityLabel,
   earnsTrio,
@@ -24,6 +26,8 @@ export function StationResults({
   const [origin, setOrigin] = useState<Origin | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [locating, setLocating] = useState(requestNearMe);
+  const [focusSlug, setFocusSlug] = useState<string | null>(null);
+  const [countryView, setCountryView] = useState(false);
 
   useEffect(() => {
     if (!requestNearMe) return;
@@ -63,9 +67,35 @@ export function StationResults({
 
   const nearest = origin && ordered.length > 0 ? haversineKm(origin, ordered[0]) : null;
   const farAway = nearest != null && nearest > 400;
+  const explicit = ordered.find((station) => station.slug === focusSlug) ?? null;
+  const shownSlug = GOOGLE_MAPS_API_KEY
+    ? (explicit?.slug ?? null)
+    : countryView
+      ? null
+      : (explicit?.slug ?? ordered[0]?.slug ?? null);
+
+  function showOnMap(slug: string) {
+    setCountryView(false);
+    setFocusSlug(slug);
+    document.getElementById("station-map")?.scrollIntoView({ block: "nearest" });
+  }
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 grid items-start gap-4 lg:grid-cols-2">
+      <div className="lg:sticky lg:top-3">
+        <StationMap
+          stations={ordered}
+          focusSlug={explicit?.slug ?? null}
+          countryView={countryView}
+          onFocus={showOnMap}
+          onCountry={() => {
+            setCountryView(true);
+            setFocusSlug(null);
+          }}
+          origin={origin}
+        />
+      </div>
+      <div>
       <p className="max-w-prose text-sm leading-snug">{SAMPLE_STATION_NOTE}</p>
       <p aria-live="polite" className="mt-2 text-sm font-semibold">
         {locating
@@ -89,9 +119,13 @@ export function StationResults({
             const distance = origin ? haversineKm(origin, station) : null;
             return (
               <li key={station.slug} className="py-4">
-                <article className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+                <article
+                  className={`grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start ${
+                    shownSlug === station.slug ? "border-l-4 border-blue bg-panel pl-3" : ""
+                  }`}
+                >
                   <div>
-                    <h2 className="text-lg font-semibold">
+                    <h2 className="text-lg font-semibold text-blue">
                       <Link href={`/find-a-station/${station.slug}`} className="underline-offset-4 hover:underline">
                         {station.name}
                       </Link>
@@ -116,21 +150,33 @@ export function StationResults({
                       <p className="mt-2 text-sm font-semibold tabular-nums">{distance.toFixed(1)} km away</p>
                     ) : null}
                   </div>
-                  <a
-                    className="btn btn-primary"
-                    href={navigateUrl(station)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Navigate
-                    <span className="sr-only"> to {station.name} (opens Google Maps)</span>
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      aria-pressed={shownSlug === station.slug}
+                      onClick={() => showOnMap(station.slug)}
+                    >
+                      {shownSlug === station.slug ? "Shown on map" : "Show on map"}
+                      <span className="sr-only"> {station.name}</span>
+                    </button>
+                    <a
+                      className="btn btn-primary"
+                      href={navigateUrl(station)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Navigate
+                      <span className="sr-only"> to {station.name} (opens Google Maps)</span>
+                    </a>
+                  </div>
                 </article>
               </li>
             );
           })}
         </ol>
       )}
+      </div>
     </div>
   );
 }

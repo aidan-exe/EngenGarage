@@ -47,13 +47,24 @@ export function useRegion(): RegionContextValue {
   return value;
 }
 
-export function RegionSwitch() {
+export function RegionSwitch({ onDark = false }: { onDark?: boolean }) {
   const { region, setRegion } = useRegion();
 
   return (
-    <div role="radiogroup" aria-label="Price region" className="inline-flex shrink-0 border border-ink">
+    <div
+      role="radiogroup"
+      aria-label="Price region"
+      className={`inline-flex shrink-0 border ${onDark ? "border-paper" : "border-blue"}`}
+    >
       {(["inland", "coastal"] as const).map((id) => {
         const selected = region === id;
+        const tone = onDark
+          ? selected
+            ? "bg-paper text-blue"
+            : "bg-transparent text-paper"
+          : selected
+            ? "bg-blue text-paper"
+            : "bg-paper text-blue";
         return (
           <button
             key={id}
@@ -61,9 +72,7 @@ export function RegionSwitch() {
             role="radio"
             aria-checked={selected}
             onClick={() => setRegion(id)}
-            className={`min-h-11 px-3 text-sm font-semibold ${
-              selected ? "bg-blue text-paper" : "bg-paper text-blue"
-            }`}
+            className={`min-h-11 px-3 text-sm font-semibold ${tone}`}
           >
             {regionLabel(id)}
           </button>

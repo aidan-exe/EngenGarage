@@ -26,7 +26,7 @@ export default async function HomePage() {
   return (
     <RegionProvider initialRegion={region} initialSaved={saved === "inland" || saved === "coastal"}>
       <main>
-        <div className="border-b border-line">
+        <div className="bg-blue text-paper">
           <div className="mx-auto max-w-6xl md:px-4 md:pt-4">
             <h1 className="sr-only md:not-sr-only md:text-xl md:font-semibold md:leading-tight">
               Find a station, today’s price, and rewards
@@ -35,12 +35,12 @@ export default async function HomePage() {
           <div id="tasks" className="mx-auto grid max-w-6xl lg:grid-cols-3">
             <section
               aria-labelledby="find-heading"
-              className="border-b border-line px-4 py-2 lg:border-r lg:border-b-0"
+              className="border-b border-white/30 px-4 py-2 lg:border-r lg:border-b-0"
             >
-              <h2 id="find-heading" className="text-lg font-semibold text-blue">
+              <h2 id="find-heading" className="text-lg font-semibold">
                 Find a station
               </h2>
-              <Link href={stationSearchHref({ near: true })} className="btn btn-primary mt-2 w-full">
+              <Link href={stationSearchHref({ near: true })} className="btn btn-on-dark mt-2 w-full">
                 Near me
               </Link>
               <form action="/find-a-station" method="get" className="mt-2">
@@ -55,7 +55,7 @@ export default async function HomePage() {
                     placeholder="Town or suburb"
                     autoComplete="off"
                   />
-                  <button type="submit" className="btn btn-secondary shrink-0">
+                  <button type="submit" className="btn btn-ghost-on-dark shrink-0">
                     Search
                   </button>
                 </div>
@@ -63,11 +63,11 @@ export default async function HomePage() {
             </section>
             <FuelTask />
             <section aria-labelledby="rewards-heading" className="px-4 py-2">
-              <h2 id="rewards-heading" className="text-lg font-semibold text-blue">
+              <h2 id="rewards-heading" className="text-lg font-semibold">
                 Rewards
               </h2>
               <p className="mt-1 leading-snug">Up to R12 a litre with FNB and Clicks.</p>
-              <Link href="/rewards" className="btn btn-primary mt-2 w-full">
+              <Link href="/rewards" className="btn btn-on-dark mt-2 w-full">
                 Check if you qualify
               </Link>
             </section>

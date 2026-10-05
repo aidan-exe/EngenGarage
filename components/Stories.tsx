@@ -1,22 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SectionBand } from "@/components/PageBand";
 import { stories } from "@/lib/stories";
 
 export function Stories() {
   return (
-    <section aria-labelledby="stories-heading" className="border-b border-line bg-paper">
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="max-w-prose">
-          <h2 id="stories-heading" className="text-xl font-semibold text-blue">
-            Stories
-          </h2>
-          <p className="mt-1 text-sm leading-snug text-mute">
-            Illustrative notes on fuel, food and rewards. Not Engen media releases.
-          </p>
-        </div>
-        <ul className="mt-4 grid gap-4 md:grid-cols-3">
+    <section aria-labelledby="stories-heading" className="bg-paper">
+      <SectionBand
+        id="stories-heading"
+        title="Stories"
+        lede="Illustrative notes on fuel, food and rewards. Not Engen media releases."
+      />
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <ul className="grid gap-4 md:grid-cols-3">
           {stories.map((story) => (
-            <li key={story.href} className="flex flex-col border border-line bg-paper">
+            <li key={story.href} className="photo-card flex flex-col">
               <Image
                 src={story.image}
                 alt={story.alt}

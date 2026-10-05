@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageBand } from "@/components/PageBand";
 import {
   amenityLabel,
   earnsTrio,
@@ -42,18 +43,22 @@ export default async function StationPage({ params }: Props) {
   if (!station) notFound();
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-6">
-      <p className="text-sm">
-        <Link href="/find-a-station" className="font-semibold underline">
-          Find an Engen station
-        </Link>
-      </p>
-      <h1 className="mt-2 text-2xl font-semibold tracking-tight">{station.name}</h1>
-      <p className="mt-2 max-w-prose text-sm leading-snug">{SAMPLE_STATION_NOTE}</p>
-      <p className="mt-1 text-mute">
-        {station.suburb}, {station.city} · {station.province}
-      </p>
-      <p className="mt-4">{station.address}</p>
+    <>
+      <PageBand
+        title={station.name}
+        kicker={
+          <Link href="/find-a-station" className="font-semibold text-paper underline">
+            Find an Engen station
+          </Link>
+        }
+      >
+        <p>{SAMPLE_STATION_NOTE}</p>
+        <p>
+          {station.suburb}, {station.city} · {station.province}
+        </p>
+      </PageBand>
+      <main className="mx-auto w-full max-w-3xl px-4 py-6">
+      <p>{station.address}</p>
       <p className="mt-2">
         {hoursLabel(station)} · {station.region === "inland" ? "Inland price" : "Coastal price"}
       </p>
@@ -78,6 +83,7 @@ export default async function StationPage({ params }: Props) {
           More in {station.city}
         </Link>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

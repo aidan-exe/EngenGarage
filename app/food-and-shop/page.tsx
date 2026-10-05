@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PageBand } from "@/components/PageBand";
 import { foodOffers } from "@/lib/food";
 
 export const metadata: Metadata = {
@@ -11,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function FoodPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Food & shop</h1>
-      <p className="mt-3 max-w-prose leading-relaxed">
-        Not every station has the same counter. Filter the station list for the one you want.
-      </p>
-      <div className="mt-6 divide-y divide-line border-y border-line">
+    <>
+      <PageBand title="Food & shop">
+        <p>Not every station has the same counter. Filter the station list for the one you want.</p>
+      </PageBand>
+      <main className="mx-auto w-full max-w-6xl px-4 py-6">
+      <div className="divide-y divide-line border-y border-line">
         {foodOffers.map((offer) => (
           <section key={offer.id} aria-labelledby={`${offer.id}-heading`} className="grid gap-4 py-5 sm:grid-cols-[16rem_minmax(0,1fr)] sm:items-center">
             <Image
@@ -42,6 +43,7 @@ export default function FoodPage() {
       <p className="mt-3 text-sm text-mute">
         Photographs are stock images under the Unsplash License, not Engen sites.
       </p>
-    </main>
+      </main>
+    </>
   );
 }

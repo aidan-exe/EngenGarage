@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageBand } from "@/components/PageBand";
 import { StationResults } from "@/components/StationResults";
 import { StationSearch } from "@/components/StationSearch";
 import { filterStations, parseAmenities, SAMPLE_STATION_NOTE } from "@/lib/stations";
@@ -23,15 +24,18 @@ export default async function FindStationPage({
   const matches = filterStations(query, amenities);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Find an Engen station</h1>
-      <p className="mt-2 max-w-prose text-sm leading-snug">{SAMPLE_STATION_NOTE}</p>
-      <p className="mt-2 max-w-prose text-mute">
-        Search by town, or use Near me. Filter for 24-hour sites, Café 365, Brazmata, Quickshop and
-        stations that earn Trio.
-      </p>
-      <StationSearch query={query} amenities={amenities} near={near} />
-      <StationResults stations={matches} requestNearMe={near} />
-    </main>
+    <>
+      <PageBand title="Find an Engen station">
+        <p>{SAMPLE_STATION_NOTE}</p>
+        <p>
+          Search by town, or use Near me. Filter for 24-hour sites, Café 365, Brazmata, Quickshop and
+          stations that earn Trio.
+        </p>
+      </PageBand>
+      <main className="mx-auto w-full max-w-6xl px-4 py-6">
+        <StationSearch query={query} amenities={amenities} near={near} />
+        <StationResults stations={matches} requestNearMe={near} />
+      </main>
+    </>
   );
 }

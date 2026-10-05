@@ -44,6 +44,11 @@ h1 {
   color: #002c90;
 }
 
+.bg-blue h1,
+.bg-blue-bright h1 {
+  color: #ffffff;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -119,6 +124,12 @@ h1 {
 
 .btn-ghost-on-dark:hover {
   background: #222222;
+}
+
+.photo-card {
+  border: 1px solid #d1d0d0;
+  border-top: 4px solid #002c90;
+  background: #ffffff;
 }
 
 .field {

@@ -1,7 +1,8 @@
 "use client";
 
-import { formatRand, GRADES, gradeById, PRICE_EFFECTIVE, PRICE_NEXT_CHANGE, regionLabel } from "@/lib/prices";
+import { SectionBand } from "@/components/PageBand";
 import { RegionDefault, RegionSwitch, useRegion } from "@/components/RegionProvider";
+import { formatRand, GRADES, gradeById, PRICE_EFFECTIVE, PRICE_NEXT_CHANGE, regionLabel } from "@/lib/prices";
 
 export function FuelTask() {
   const { region } = useRegion();
@@ -11,30 +12,30 @@ export function FuelTask() {
   return (
     <section
       aria-labelledby="price-heading"
-      className="border-b border-line px-4 py-2 lg:border-r lg:border-b-0"
+      className="border-b border-white/30 px-4 py-2 lg:border-r lg:border-b-0"
     >
       <div className="flex items-start justify-between gap-3">
-        <h2 id="price-heading" className="text-lg font-semibold leading-tight text-blue">
+        <h2 id="price-heading" className="text-lg font-semibold leading-tight">
           Today’s fuel price
         </h2>
-        <RegionSwitch />
+        <RegionSwitch onDark />
       </div>
       <dl className="mt-2">
-        <div className="flex items-baseline justify-between gap-3 border-b border-line py-1.5">
+        <div className="flex items-baseline justify-between gap-3 border-b border-white/30 py-1.5">
           <dt>95 Unleaded</dt>
-          <dd className="text-2xl font-semibold tabular-nums text-blue">{formatRand(unleaded)}</dd>
+          <dd className="text-2xl font-semibold tabular-nums">{formatRand(unleaded)}</dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 py-1.5">
           <dt>
             Diesel 50 ppm
-            <span className="font-normal text-mute"> · wholesale</span>
+            <span className="font-normal text-white/80"> · wholesale</span>
           </dt>
-          <dd className="text-2xl font-semibold tabular-nums text-blue">{formatRand(diesel)}</dd>
+          <dd className="text-2xl font-semibold tabular-nums">{formatRand(diesel)}</dd>
         </div>
       </dl>
-      <p className="mt-1 text-sm leading-snug text-mute">
+      <p className="mt-1 text-sm leading-snug text-white/80">
         Illustrative figures, effective from {PRICE_EFFECTIVE}.{" "}
-        <a href="#all-grades" className="font-semibold text-ink underline">
+        <a href="#all-grades" className="font-semibold text-paper underline">
           All grades
         </a>
       </p>
@@ -46,22 +47,16 @@ export function PriceTable() {
   const { region } = useRegion();
 
   return (
-    <section id="all-grades" aria-labelledby="grades-heading" className="scroll-mt-4 border-t border-line">
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div className="max-w-prose">
-            <h2 id="grades-heading" className="text-xl font-semibold text-blue">
-              All grades
-            </h2>
-            <p className="mt-1 text-sm leading-relaxed text-mute">
-              Illustrative figures, effective from {PRICE_EFFECTIVE}. Not a live feed. Petrol is the
-              regulated retail price. Diesel is a wholesale reference, so the pump price can differ.
-            </p>
-          </div>
-          <div className="flex flex-col items-start gap-1">
-            <RegionSwitch />
-            <RegionDefault />
-          </div>
+    <section id="all-grades" aria-labelledby="grades-heading" className="scroll-mt-4">
+      <SectionBand
+        id="grades-heading"
+        title="All grades"
+        lede={`Illustrative figures, effective from ${PRICE_EFFECTIVE}. Not a live feed. Petrol is the regulated retail price. Diesel is a wholesale reference, so the pump price can differ.`}
+      />
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <div className="flex flex-col items-start gap-1">
+          <RegionSwitch />
+          <RegionDefault />
         </div>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[22rem] border-collapse text-left">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageBand } from "@/components/PageBand";
 import { CARE_DISPLAY, CARE_TEL } from "@/lib/site";
 import { stationSearchHref } from "@/lib/stations";
 
@@ -16,14 +17,15 @@ const SCAM_ALERT = "https://www.engen.co.za/media/media-release/scam-alert-fraud
 
 export default function RewardsPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Rewards</h1>
-      <p className="mt-3 text-lg leading-snug">
-        Pay with FNB, swipe your Clicks ClubCard, and earn up to R12 a litre at a participating
-        Engen.
-      </p>
-
-      <aside className="mt-5 border-l-4 border-engen bg-scam px-4 py-3" aria-label="Scam warning">
+    <>
+      <PageBand title="Rewards">
+        <p>
+          Pay with FNB, swipe your Clicks ClubCard, and earn up to R12 a litre at a participating
+          Engen.
+        </p>
+      </PageBand>
+      <main className="mx-auto w-full max-w-3xl px-4 py-6">
+      <aside className="border-l-4 border-engen bg-scam px-4 py-3" aria-label="Scam warning">
         <h2 className="text-lg font-semibold">Engen will never SMS you a link</h2>
         <p className="mt-2 leading-relaxed">
           We will not text you a web address, ask for your PIN, or tell you to pay a verification
@@ -41,7 +43,7 @@ export default function RewardsPage() {
       </aside>
 
       <section className="mt-8" aria-labelledby="trio-check">
-        <h2 id="trio-check" className="text-xl font-semibold">
+        <h2 id="trio-check" className="text-xl font-semibold text-blue">
           Trio
         </h2>
         <p className="mt-2 leading-relaxed">
@@ -66,7 +68,7 @@ export default function RewardsPage() {
       </section>
 
       <section className="mt-8" aria-labelledby="example-heading">
-        <h2 id="example-heading" className="text-xl font-semibold">
+        <h2 id="example-heading" className="text-xl font-semibold text-blue">
           A worked example
         </h2>
         <p className="mt-2 leading-relaxed">
@@ -77,7 +79,7 @@ export default function RewardsPage() {
       </section>
 
       <section className="mt-8" aria-labelledby="ebucks-check">
-        <h2 id="ebucks-check" className="text-xl font-semibold">
+        <h2 id="ebucks-check" className="text-xl font-semibold text-blue">
           eBucks
         </h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
@@ -88,7 +90,7 @@ export default function RewardsPage() {
       </section>
 
       <section className="mt-8" aria-labelledby="clicks-check">
-        <h2 id="clicks-check" className="text-xl font-semibold">
+        <h2 id="clicks-check" className="text-xl font-semibold text-blue">
           Clicks ClubCard
         </h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
@@ -106,6 +108,7 @@ export default function RewardsPage() {
           Stations that earn Trio
         </Link>
       </p>
-    </main>
+      </main>
+    </>
   );
 }

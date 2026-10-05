@@ -14,7 +14,7 @@ export function CookieBar({ dismissed }: { dismissed: boolean }) {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink bg-paper">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t-4 border-blue bg-paper">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2">
         <p className="min-w-0 flex-1 text-sm leading-snug">
           Saves your price region on this device.

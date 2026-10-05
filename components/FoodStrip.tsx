@@ -1,17 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SectionBand } from "@/components/PageBand";
 import { foodOffers } from "@/lib/food";
 
 export function FoodStrip() {
   return (
-    <section aria-labelledby="food-heading" className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <h2 id="food-heading" className="text-xl font-semibold text-blue">
-          Food & shop
-        </h2>
-        <ul className="mt-4 grid gap-4 md:grid-cols-3">
+    <section aria-labelledby="food-heading">
+      <SectionBand id="food-heading" title="Food & shop" tone="primary" />
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <ul className="grid gap-4 md:grid-cols-3">
           {foodOffers.map((offer) => (
-            <li key={offer.id} className="flex flex-col border border-line">
+            <li key={offer.id} className="photo-card flex flex-col">
               <Image
                 src={offer.image}
                 alt={offer.alt}

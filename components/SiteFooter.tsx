@@ -11,7 +11,13 @@ const LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-line bg-mist">
+    <footer className="mt-auto">
+      <div className="bg-blue text-paper">
+        <p className="mx-auto max-w-6xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em]">
+          Engen
+        </p>
+      </div>
+      <div className="border-t border-line bg-mist">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-blue">Customer care</p>
@@ -37,6 +43,7 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
+      </div>
       </div>
     </footer>
   );
