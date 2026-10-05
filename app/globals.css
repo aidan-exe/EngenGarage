@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --engen-red: #c8102e;
+  --ink: #111111;
+  --paper: #ffffff;
+  --mist: #f3f3f3;
+  --line: #dedede;
+  --mute: #3a3a3a;
+  --scam: #f8ecec;
+}
+
+@theme inline {
+  --color-engen: var(--engen-red);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-mute: var(--mute);
+  --color-scam: var(--scam);
+  --font-sans: var(--font-barlow), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 60;
+  transform: translateY(-200%);
+  background: #111111;
+  color: #ffffff;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+:focus-visible {
+  outline: 2px solid #c8102e;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #111111;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #2b2b2b;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: inset 0 0 0 1px #111111;
+}
+
+.btn-secondary:hover {
+  background: #f3f3f3;
+}
+
+.btn-on-dark {
+  background: #ffffff;
+  color: #111111;
+}
+
+.btn-on-dark:hover {
+  background: #f3f3f3;
+}
+
+.btn-ghost-on-dark {
+  background: transparent;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px #ffffff;
+}
+
+.btn-ghost-on-dark:hover {
+  background: #222222;
+}
+
+.field {
+  height: 44px;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #111111;
+  background: #ffffff;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  color: #111111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
