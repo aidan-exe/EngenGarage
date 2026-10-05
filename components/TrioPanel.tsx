@@ -3,10 +3,10 @@ import { stationSearchHref } from "@/lib/stations";
 
 export function TrioPanel() {
   return (
-    <section aria-labelledby="trio-heading" className="bg-ink text-paper">
+    <section aria-labelledby="trio-heading" className="bg-blue text-paper">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-engen">Trio</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.14em]">Trio</p>
           <h2 id="trio-heading" className="mt-1 text-2xl font-semibold leading-tight">
             Up to R12 a litre
           </h2>

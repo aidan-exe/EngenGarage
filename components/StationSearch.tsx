@@ -57,7 +57,7 @@ export function StationSearch({
                 href={stationSearchHref({ q: query, amenities: next, near })}
                 aria-current={selected ? "true" : undefined}
                 className={`inline-flex min-h-11 items-center px-3 text-sm font-semibold ${
-                  selected ? "bg-ink text-paper" : "bg-paper text-ink shadow-[inset_0_0_0_1px_#111]"
+                  selected ? "bg-blue text-paper" : "bg-paper text-blue shadow-[inset_0_0_0_1px_#002c90]"
                 }`}
               >
                 {amenity.label}

@@ -14,7 +14,7 @@ export function FuelTask() {
       className="border-b border-line px-4 py-2 lg:border-r lg:border-b-0"
     >
       <div className="flex items-start justify-between gap-3">
-        <h2 id="price-heading" className="text-lg font-semibold leading-tight">
+        <h2 id="price-heading" className="text-lg font-semibold leading-tight text-blue">
           Today’s fuel price
         </h2>
         <RegionSwitch />
@@ -22,14 +22,14 @@ export function FuelTask() {
       <dl className="mt-2">
         <div className="flex items-baseline justify-between gap-3 border-b border-line py-1.5">
           <dt>95 Unleaded</dt>
-          <dd className="text-2xl font-semibold tabular-nums">{formatRand(unleaded)}</dd>
+          <dd className="text-2xl font-semibold tabular-nums text-blue">{formatRand(unleaded)}</dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 py-1.5">
           <dt>
             Diesel 50 ppm
             <span className="font-normal text-mute"> · wholesale</span>
           </dt>
-          <dd className="text-2xl font-semibold tabular-nums">{formatRand(diesel)}</dd>
+          <dd className="text-2xl font-semibold tabular-nums text-blue">{formatRand(diesel)}</dd>
         </div>
       </dl>
       <p className="mt-1 text-sm leading-snug text-mute">
@@ -50,7 +50,7 @@ export function PriceTable() {
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="max-w-prose">
-            <h2 id="grades-heading" className="text-xl font-semibold">
+            <h2 id="grades-heading" className="text-xl font-semibold text-blue">
               All grades
             </h2>
             <p className="mt-1 text-sm leading-relaxed text-mute">

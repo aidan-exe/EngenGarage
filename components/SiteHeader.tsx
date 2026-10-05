@@ -15,15 +15,14 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-line bg-paper">
-      <div className="h-1 bg-engen" aria-hidden="true" />
+    <header className="border-b-4 border-engen bg-blue text-paper">
       <a className="skip-link" href="#content">
         Skip to content
       </a>
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 px-4 py-2">
         <Link
           href="/"
-          className="text-[1.5rem] font-bold uppercase leading-none tracking-[0.14em] text-engen"
+          className="text-[1.5rem] font-bold uppercase leading-none tracking-[0.14em] text-paper"
         >
           Engen
         </Link>
@@ -41,8 +40,8 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`inline-flex min-h-11 shrink-0 items-center text-[0.95rem] font-semibold underline-offset-8 hover:underline ${
-                  active ? "text-engen underline decoration-2" : "text-ink"
+                className={`inline-flex min-h-11 shrink-0 items-center text-[0.95rem] font-semibold text-paper underline-offset-8 hover:underline ${
+                  active ? "underline decoration-2" : ""
                 }`}
               >
                 {link.label}

@@ -62,7 +62,7 @@ export function RegionSwitch() {
             aria-checked={selected}
             onClick={() => setRegion(id)}
             className={`min-h-11 px-3 text-sm font-semibold ${
-              selected ? "bg-ink text-paper" : "bg-paper text-ink"
+              selected ? "bg-blue text-paper" : "bg-paper text-blue"
             }`}
           >
             {regionLabel(id)}

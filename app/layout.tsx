@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import { cookies } from "next/headers";
 import { CookieBar } from "@/components/CookieBar";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -7,11 +7,11 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { getSiteUrl, NOTICE_COOKIE } from "@/lib/site";
 import "./globals.css";
 
-const barlow = Barlow({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
-  variable: "--font-barlow",
+  variable: "--font-source",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default async function RootLayout({
   const noticeDismissed = jar.get(NOTICE_COOKIE)?.value === "1";
 
   return (
-    <html lang="en" className={`${barlow.variable} h-full antialiased`}>
+    <html lang="en" className={`${sourceSans.variable} h-full antialiased`}>
       <body
         className={`flex min-h-full flex-col bg-paper font-sans text-ink ${noticeDismissed ? "" : "pb-24"}`}
       >

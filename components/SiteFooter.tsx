@@ -14,9 +14,9 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-line bg-mist">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em]">Customer care</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-blue">Customer care</p>
           <a
-            className="mt-1 inline-flex min-h-11 items-center text-xl font-semibold"
+            className="mt-1 inline-flex min-h-11 items-center text-xl font-semibold text-blue"
             href={`tel:${CARE_TEL}`}
           >
             {CARE_DISPLAY}
@@ -31,7 +31,7 @@ export function SiteFooter() {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-11 items-center font-semibold underline-offset-4 hover:underline sm:justify-end"
+              className="inline-flex min-h-11 items-center font-semibold text-blue underline-offset-4 hover:underline sm:justify-end"
             >
               {link.label}
             </Link>
