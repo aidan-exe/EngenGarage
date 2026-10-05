@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/*
+  Measured from https://www.engen.co.za/static/css/main.610132c8.css on 5 Oct 2026:
+  #002c90 primary (header, buttons, titles), #0033a0 secondary blue,
+  #5d5d5d text, #e7e9ea panels, #f1f2f2 footer, #ffffff.
+  The live header paints the logo block in #002c90. Red #c8102e stays as the wordmark accent.
+  Univers LT Std is the live face; it is licensed, so this site uses Source Sans 3.
+*/
+:root {
+  --engen-red: #c8102e;
+  --engen-blue: #002c90;
+  --engen-blue-bright: #0033a0;
+  --ink: #111111;
+  --paper: #ffffff;
+  --mist: #f1f2f2;
+  --panel: #e7e9ea;
+  --line: #d1d0d0;
+  --mute: #5d5d5d;
+  --scam: #f8ecec;
+}
+
+@theme inline {
+  --color-engen: var(--engen-red);
+  --color-blue: var(--engen-blue);
+  --color-blue-bright: var(--engen-blue-bright);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-mute: var(--mute);
+  --color-scam: var(--scam);
+  --font-sans: var(--font-source), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+h1 {
+  color: #002c90;
+}
+
+.bg-blue h1,
+.bg-blue-bright h1 {
+  color: #ffffff;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 60;
+  transform: translateY(-200%);
+  background: #111111;
+  color: #ffffff;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #002c90;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #002c90;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #0033a0;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #002c90;
+  box-shadow: inset 0 0 0 1px #002c90;
+}
+
+.btn-secondary:hover {
+  background: #f3f3f3;
+}
+
+.btn-on-dark {
+  background: #ffffff;
+  color: #111111;
+}
+
+.btn-on-dark:hover {
+  background: #f3f3f3;
+}
+
+.btn-ghost-on-dark {
+  background: transparent;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px #ffffff;
+}
+
+.btn-ghost-on-dark:hover {
+  background: #222222;
+}
+
+.photo-card {
+  border: 1px solid #d1d0d0;
+  border-top: 4px solid #002c90;
+  background: #ffffff;
+}
+
+.field {
+  height: 44px;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #002c90;
+  background: #ffffff;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  color: #111111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
