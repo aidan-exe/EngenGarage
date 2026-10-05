@@ -8,6 +8,10 @@ export const AMENITIES = [
 
 export type AmenityId = (typeof AMENITIES)[number]["id"];
 
+/** Shown wherever the hard-coded station list is presented. */
+export const SAMPLE_STATION_NOTE =
+  "This is a sample station list for the UX concept, not the live Engen network.";
+
 export type Station = {
   slug: string;
   name: string;
@@ -23,6 +27,7 @@ export type Station = {
   closes: string;
 };
 
+/** Sample stations for the UX concept. Not the live Engen network. */
 export const stations: Station[] = [
   {
     slug: "rivonia",

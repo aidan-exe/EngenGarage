@@ -9,4 +9,4 @@ npm run dev
 
 Pages: Home, Find a station, Rewards, Food & shop, About.
 
-Fuel prices are illustrative figures effective from 2 September 2026. They are not a live feed.
+Fuel prices are illustrative figures effective from 2 September 2026. They are not a live feed. The station list is a sample for the UX concept, not the live Engen network.

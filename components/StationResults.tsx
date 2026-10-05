@@ -8,6 +8,7 @@ import {
   earnsTrio,
   hoursLabel,
   navigateUrl,
+  SAMPLE_STATION_NOTE,
   type Station,
 } from "@/lib/stations";
 
@@ -65,7 +66,8 @@ export function StationResults({
 
   return (
     <div className="mt-4">
-      <p aria-live="polite" className="text-sm font-semibold">
+      <p className="max-w-prose text-sm leading-snug">{SAMPLE_STATION_NOTE}</p>
+      <p aria-live="polite" className="mt-2 text-sm font-semibold">
         {locating
           ? "Finding stations near you."
           : `${ordered.length} ${ordered.length === 1 ? "station" : "stations"}`}

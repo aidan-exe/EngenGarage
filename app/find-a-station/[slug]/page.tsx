@@ -7,6 +7,7 @@ import {
   getStation,
   hoursLabel,
   navigateUrl,
+  SAMPLE_STATION_NOTE,
   stations,
   stationSearchHref,
 } from "@/lib/stations";
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: {
       absolute: `${station.name} in ${station.city} · Find an Engen station`,
     },
-    description: `${station.address}. ${hoursLabel(station)}. ${trio}`,
+    description: `Sample station for this UX concept, not the live Engen network. ${station.address}. ${hoursLabel(station)}. ${trio}`,
   };
 }
 
@@ -48,6 +49,7 @@ export default async function StationPage({ params }: Props) {
         </Link>
       </p>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight">{station.name}</h1>
+      <p className="mt-2 max-w-prose text-sm leading-snug">{SAMPLE_STATION_NOTE}</p>
       <p className="mt-1 text-mute">
         {station.suburb}, {station.city} · {station.province}
       </p>

@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   description:
     "Find an Engen station, check illustrative inland and coastal fuel prices, and see how Trio, eBucks and Clicks rewards work.",
   applicationName: "Engen",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function RootLayout({

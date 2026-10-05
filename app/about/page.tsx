@@ -4,7 +4,7 @@ import { CARE_DISPLAY, CARE_TEL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Engen retails fuel at about 1,040 stations in South Africa. Find a station, check the price, and see how rewards work.",
+    "Engen retails fuel at about 1,040 stations in South Africa. The stations listed on this site are a sample for the UX concept, not that live network.",
 };
 
 export default function AboutPage() {
@@ -12,7 +12,10 @@ export default function AboutPage() {
     <main className="mx-auto w-full max-w-3xl px-4 py-6">
       <h1 className="text-2xl font-semibold tracking-tight">About Engen</h1>
       <div className="mt-3 max-w-prose space-y-3 leading-relaxed">
-        <p>Engen retails fuel at about 1,040 stations in South Africa.</p>
+        <p>
+          Engen retails fuel at about 1,040 stations in South Africa. The stations listed on this
+          site are a sample for the UX concept, not that live network.
+        </p>
         <p>
           Use this site to find a station, check the inland or coastal price, and see whether Trio,
           eBucks or Clicks applies before you fill up.
